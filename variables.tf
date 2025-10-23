@@ -73,3 +73,16 @@ variable "common_resource_groups" {
     }
   }
 }
+variable "create_sops_key" {
+  description = "Whether to create SOPS encryption key (disabled for edu accounts)"
+  type        = bool
+  default     = false
+  nullable    = false
+}
+
+variable "sops_principal_object_id" {
+  description = "Object ID for SOPS principal (optional, defaults to current user)"
+  type        = string
+  default     = ""
+  nullable    = false
+}

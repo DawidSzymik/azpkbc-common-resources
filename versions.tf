@@ -5,6 +5,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 4.40"
     }
+    sops = {
+      source  = "carlpett/sops"
+      version = "~> 1.0"
+    }
   }
   backend "local" {
     path = "tfstate/terraform.tfstate"
@@ -14,5 +18,5 @@ terraform {
 provider "azurerm" {
   features {}
   resource_provider_registrations = "none"
-  subscription_id                 = "156f2dd5-7ab1-4226-8435-42430d34ee49" # Twoja subskrypcja
+  subscription_id                 = "156f2dd5-7ab1-4226-8435-42430d34ee49"
 }
