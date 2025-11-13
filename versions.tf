@@ -10,13 +10,22 @@ terraform {
       version = "~> 1.0"
     }
   }
-  backend "local" {
-    path = "tfstate/terraform.tfstate"
+  
+  # ZAKOMENTUJ lokalny backend:
+  # backend "local" {
+  #   path = "tfstate/terraform.tfstate"
+  # }
+  
+  # DODAJ zdalny backend:
+  backend "azurerm" {
+    resource_group_name  = "azpkbc-rg-basic-labs"
+    storage_account_name = "azpkbcr2025g14k2148754"
+    container_name       = "tfstate"
+    key                  = "azpkbc-common-resources/terraform.tfstate"
   }
 }
 
 provider "azurerm" {
   features {}
-  resource_provider_registrations = "none"
-  subscription_id                 = "156f2dd5-7ab1-4226-8435-42430d34ee49"
+  subscription_id = "156f2dd5-7ab1-4226-8435-42430d34ee49"
 }

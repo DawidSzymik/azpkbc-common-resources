@@ -86,3 +86,8 @@ variable "sops_principal_object_id" {
   default     = ""
   nullable    = false
 }
+variable "enable_access_key" {
+  description = "Czy włączyć generowanie kluczy dostępu (przydatne dla backup/CI/CD)."
+  type        = bool
+  default     = true
+}
